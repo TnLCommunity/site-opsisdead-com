@@ -1,0 +1,36 @@
+name: UI Deploy
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+    paths:
+      - 'opsisdead/**'
+jobs:
+  deploy:
+    name: UI Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-west-2
+          aws-access-key-id: ${{ secrets.CICD_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.CICD_AWS_SECRET_ACCESS_KEY }}
+          role-skip-session-tagging: true
+          role-duration-seconds: 1200
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Build and copy static content to S3
+        run: |
+          make
+          cd ./opsisdead/
+          go install -tags extended github.com/gohugoio/hugo@latest
+          hugo
+          cd ./public/
+          aws s3 sync . s3://opsisdead.com/ --delete
+          aws cloudfront create-invalidation --distribution-id REPLACEME --paths '/*'

@@ -17,7 +17,7 @@ locals {
 }
 
 data "cloudflare_zone" "opsisdead-com" {
-  name = "opsisdead.com"
+  name = local.environment_domain_name
 }
 
 module "demo-acm" {

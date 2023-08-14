@@ -20,4 +20,7 @@
 # Go workspace file
 go.work
 
+# Specific to this repo
 public/
+.terraform/
+.terraform.lock.hcl

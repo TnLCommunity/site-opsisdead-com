@@ -6,3 +6,5 @@ draft: true
 ## Testing Stuff
 
 This purely exists to *test* a website deployment, completely automated.
+
+This would only show up from the git repo.

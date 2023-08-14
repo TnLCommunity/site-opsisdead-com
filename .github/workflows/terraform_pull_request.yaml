@@ -10,7 +10,7 @@ jobs:
     strategy:
       # prevent all jobs from being cancelled if one fails
       fail-fast: false
-    name: Plan site
+    name: Plan opsisdead
     runs-on: ubuntu-latest
     steps:
       - name: Plan

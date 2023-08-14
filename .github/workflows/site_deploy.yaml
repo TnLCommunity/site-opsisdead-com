@@ -33,4 +33,4 @@ jobs:
           hugo
           cd ./public/
           aws s3 sync . s3://opsisdead.com/ --delete
-          aws cloudfront create-invalidation --distribution-id REPLACEME --paths '/*'
+          aws cloudfront create-invalidation --distribution-id E3R18J6D97NVB9 --paths '/*'

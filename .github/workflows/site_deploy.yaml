@@ -22,12 +22,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.CICD_AWS_SECRET_ACCESS_KEY }}
           role-skip-session-tagging: true
           role-duration-seconds: 1200
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
       - name: Build and copy static content to S3
         run: |
-          make
           cd ./opsisdead/
           go install -tags extended github.com/gohugoio/hugo@latest
           hugo

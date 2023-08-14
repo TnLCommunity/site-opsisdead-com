@@ -12,14 +12,14 @@ jobs:
     strategy:
       # prevent all jobs from being cancelled if one fails
       fail-fast: false
-    name: Apply ${{ matrix.environment }}
+    name: Apply opsisdead
     runs-on: ubuntu-latest
     steps:
       - name: Apply
         uses: catalystsquad/action-terraform@v1
         with:
           command: apply
-          work-dir: terraform/${{ matrix.environment }}
+          work-dir: terraform/site
           provider: aws
           aws-region: us-west-2
           aws-access-key-id: ${{ secrets.CICD_AWS_ACCESS_KEY_ID }}

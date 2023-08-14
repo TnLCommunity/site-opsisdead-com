@@ -10,14 +10,14 @@ jobs:
     strategy:
       # prevent all jobs from being cancelled if one fails
       fail-fast: false
-    name: Plan ${{ matrix.environment }}
+    name: Plan site
     runs-on: ubuntu-latest
     steps:
       - name: Plan
         uses: catalystsquad/action-terraform@v1
         with:
           command: plan
-          work-dir: terraform/${{ matrix.environment }}
+          work-dir: terraform/site
           provider: aws
           aws-region: us-west-2
           aws-access-key-id: ${{ secrets.CICD_AWS_ACCESS_KEY_ID }}

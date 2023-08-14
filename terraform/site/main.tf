@@ -58,7 +58,7 @@ module "opsisdead-com-static-site" {
 resource "cloudflare_record" "opsisdead-com" {
   zone_id = data.cloudflare_zone.opsisdead-com.id
   name    = local.environment_domain_name
-  value   = module.demo-static-site.cloudfront_domain_name
+  value   = module.opsisdead-com-static-site.cloudfront_domain_name
   type    = "CNAME"
   ttl     = 300
   proxied = false

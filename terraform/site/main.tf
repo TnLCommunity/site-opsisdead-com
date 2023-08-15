@@ -63,3 +63,4 @@ resource "cloudflare_record" "opsisdead-com" {
   ttl     = 300
   proxied = false
 }
+

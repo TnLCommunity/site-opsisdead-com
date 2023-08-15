@@ -1,4 +1,4 @@
 baseURL = 'https://opsisdead.com/'
 languageCode = 'en-us'
 title = 'Ops Is Dead'
-theme = 'ananke'
+theme = 'hermit'

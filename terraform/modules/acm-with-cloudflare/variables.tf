@@ -9,7 +9,7 @@ variable "cloudflare_zone_id" {
 
 # optional
 variable "subject_alternative_names" {
-  type = list(string)
+  type    = list(string)
   default = []
 }
 

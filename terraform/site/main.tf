@@ -113,4 +113,3 @@ resource "cloudflare_record" "clubdoers-com" {
   ttl     = 300
   proxied = false
 }
-

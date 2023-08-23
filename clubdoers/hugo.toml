@@ -1,0 +1,15 @@
+baseURL = 'https://clubdoers.com/'
+languageCode = 'en-us'
+title = 'Club Doers'
+theme = 'salinger'
+name = "ClubDoers"
+version = "0.1.0"
+description = "Content about living a doer life"
+homepage = "https://clubdoers.com"
+tags = ["simple"]
+features = ["fast", "blog", "sorting", "dark mode", "categories", "seo"]
+min_version = "0.112.0"
+
+[author]
+  name = "Tod Hansmann"
+  homepage = "clubdoers.com"

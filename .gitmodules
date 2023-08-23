@@ -1,3 +1,6 @@
 [submodule "opsisdead/themes/hermit"]
 	path = opsisdead/themes/hermit
 	url = https://github.com/Track3/hermit.git
+[submodule "clubdoers/themes/salinger"]
+	path = clubdoers/themes/salinger
+	url = https://github.com/jacksalici/salinger-theme.git

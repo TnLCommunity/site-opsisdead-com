@@ -41,7 +41,7 @@ module "opsisdead-com-static-site" {
   website_domain = local.opsisdead_environment_domain_name
   bucket_name    = local.opsisdead_environment_domain_name
 
-  acm_certificate_arn    = module.demo-acm.acm_certificate_arn
+  acm_certificate_arn    = module.opsisdead-acm.acm_certificate_arn
   create_acm_certificate = false
   create_site_records    = false
 
@@ -88,7 +88,7 @@ module "clubdoers-com-static-site" {
   website_domain = local.clubdoers_environment_domain_name
   bucket_name    = local.clubdoers_environment_domain_name
 
-  acm_certificate_arn    = module.demo-acm.acm_certificate_arn
+  acm_certificate_arn    = module.clubdoers-acm.acm_certificate_arn
   create_acm_certificate = false
   create_site_records    = false
 

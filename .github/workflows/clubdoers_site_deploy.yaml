@@ -1,0 +1,35 @@
+name: UI Deploy
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+    paths:
+      - 'clubdoers/**'
+jobs:
+  deploy:
+    name: UI Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: 'true'
+          token: ${{ github.token }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: us-west-2
+          aws-access-key-id: ${{ secrets.CICD_AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.CICD_AWS_SECRET_ACCESS_KEY }}
+          role-skip-session-tagging: true
+          role-duration-seconds: 1200
+      - name: Build and copy static content to S3
+        run: |
+          cd ./clubdoers/
+          go install -tags extended github.com/gohugoio/hugo@latest
+          hugo
+          cd ./public/
+          aws s3 sync . s3://clubdoers.com/ --delete
+          aws cloudfront create-invalidation --distribution-id E3R18J6D97NVB9 --paths '/*'

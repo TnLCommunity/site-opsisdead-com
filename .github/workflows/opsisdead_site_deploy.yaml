@@ -1,4 +1,4 @@
-name: UI Deploy
+name: opsisdead UI Deploy
 on:
   pull_request:
     types:

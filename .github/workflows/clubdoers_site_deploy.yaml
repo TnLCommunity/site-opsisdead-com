@@ -32,4 +32,4 @@ jobs:
           hugo
           cd ./public/
           aws s3 sync . s3://clubdoers.com/ --delete
-          aws cloudfront create-invalidation --distribution-id E3R18J6D97NVB9 --paths '/*'
+          aws cloudfront create-invalidation --distribution-id EFYJMVSJ3YJUA --paths '/*'

@@ -9,7 +9,6 @@ homepage = "https://clubdoers.com"
 tags = ["simple"]
 features = ["fast", "blog", "sorting", "dark mode", "categories", "seo"]
 min_version = "0.112.0"
-
 [author]
   name = "Tod Hansmann"
   homepage = "clubdoers.com"

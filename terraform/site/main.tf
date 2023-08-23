@@ -22,7 +22,7 @@ data "cloudflare_zone" "opsisdead-com" {
   name = local.opsisdead_environment_domain_name
 }
 
-module "demo-acm" {
+module "opsisdead-acm" {
   source = "../modules/acm-with-cloudflare/"
 
   domain_name        = local.opsisdead_environment_domain_name
@@ -71,7 +71,7 @@ data "cloudflare_zone" "clubdoers-com" {
   name = local.clubdoers_environment_domain_name
 }
 
-module "demo-acm" {
+module "clubdoers-acm" {
   source = "../modules/acm-with-cloudflare/"
 
   domain_name        = local.clubdoers_environment_domain_name
